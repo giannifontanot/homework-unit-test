@@ -4,14 +4,14 @@ module.exports = {
     fillData: () => {
         const questions = [
             {
-                name: 'officeNumber',
+                name: 'school',
                 type: 'input',
-                message: 'Enter the office number:',
+                message: 'Enter the school name',
                 validate: function (value) {
                     if (value.length) {
                         return true;
                     } else {
-                        return 'Please enter the office number.';
+                        return 'Please enter the school name';
                     }
                 }
             },
