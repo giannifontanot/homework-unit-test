@@ -34,7 +34,7 @@ module.exports = {
                     if (value.length) {
                         return true;
                     } else {
-                        return 'Please enter an e-mail address.';
+                        return 'Please enter a valid e-mail address.';
                     }
                 }
             },
