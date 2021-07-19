@@ -1,3 +1,4 @@
+//  Options for the user.
 const inquirer = require('inquirer');
 
 module.exports = {
