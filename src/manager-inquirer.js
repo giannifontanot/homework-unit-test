@@ -11,7 +11,7 @@ module.exports = {
                     if (value.length) {
                         return true;
                     } else {
-                        return 'Please enter the office number.';
+                        return 'Please enter the office number';
                     }
                 }
             },
