@@ -1,32 +1,43 @@
 const inquirer = require('inquirer');
 
 module.exports = {
-    fillEmployeeData: () => {
+    fillData: () => {
         const questions = [
             {
-                name: 'username',
+                name: 'name',
                 type: 'input',
-                message: 'Enter your GitHub username or e-mail address:',
+                message: 'Enter the name:',
                 validate: function( value ) {
                     if (value.length) {
                         return true;
                     } else {
-                        return 'Please enter your username or e-mail address.';
+                        return 'Please enter the name.';
                     }
                 }
             },
             {
-                name: 'password',
-                type: 'password',
-                message: 'Enter your password:',
-                validate: function(value) {
+                name: 'id',
+                type: 'input',
+                message: 'Enter the employee ID number:',
+                validate: function( value ) {
                     if (value.length) {
                         return true;
                     } else {
-                        return 'Please enter your password.';
+                        return 'Please enter the employee ID number.';
                     }
                 }
-            }
+            },            {
+                name: 'email',
+                type: 'input',
+                message: 'Enter a valid e-mail address:',
+                validate: function( value ) {
+                    if (value.length) {
+                        return true;
+                    } else {
+                        return 'Please enter an e-mail address.';
+                    }
+                }
+            },
         ];
         return inquirer.prompt(questions);
     },

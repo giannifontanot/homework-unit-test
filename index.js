@@ -1,88 +1,60 @@
 // Required libraries: INQUIRER and FILE SYSTEM
+const chalk = require('chalk');
+const clear = require('clear');
+const figlet = require('figlet');
 const inquirer = require('inquirer');
 const inquirer_recursive = require('inquirer-recursive');
 const fs = require('fs');
+const employee_inquirer = require('./src/employee-inquirer');
+const manager_inquirer = require('./src/manager-inquirer');
+const option_inquirer = require('./src/option_inquirer');
+// const employee_inquirer = require('./src/intern-inquirer');
+// const employee_inquirer = require('./src/engineer-inquirer');
 
-// Employee array
-const gEmployeeArray = [];
-let html = "";
+clear();
 
-// Begin prompt - Inquirer
-inquirer.registerPrompt('recursive', require('inquirer-recursive'));
-inquirer.prompt([
-    {
-        // Name of the employee
-        name: "manager_name",
-        type: "input",
-        message: "What is the manager's name?",
-    },
+console.log(
+    chalk.yellow(
+        figlet.textSync('My Team', {
+            horizontalLayout: 'full'
+        })
+    )
+);
 
-    {
-        // Id of the employee
-        name: "id",
-        type: "input",
-        message: "What is your id?",
-    },
-    {
-        // email
-        name: "email",
-        type: "input",
-        message: "what is your email address?",
-    },
-    {
-        // Picture used
-        name: "office_number",
-        type: "input",
-        message: "What is your Office number?",
-    },
-]).then(data => {
-    data.employees.forEach(employee => {
+const run = async () => {
+    // Enter manager's information
+    let employeeData = await employee_inquirer.fillData();
+    let managerData = await manager_inquirer.fillData();
 
-        html += `<ul>
-                    <li>${employee.position}</li>
-                    <li>${employee.id}</li>
-                    <li>${employee.name}</li>
-                    <li>${employee.email}</li>
-                    <li>${employee.githubaccount}</li>
-                </ul>`;
-    });
-    writeHTMLFile(html);
+    let bContinue = true;
+    while (bContinue) {
+
+        let engineerData = "";
+        let internData = "";
+
+        // What else do you want to do?
+        const {option} = await option_inquirer.getOption();
+        switch (option) {
+            case "add an engineer":
+                employeeData = await employee_inquirer.fillData();
+                managerData = await manager_inquirer.fillData();
+                break;
+            case "add an intern":
+                employeeData = await employee_inquirer.fillData();
+                const managerData = await manager_inquirer.fillData();
+                break;
+            case "finish building my team":
+                bContinue = false;
+                break;
+
+        }
+
+    }
+
+}
+run().then(r => {
+    console.log("r: " + r);
 
 });
-
-// We write the results
-function writeHTMLFile(pText) {
-    // Name of the file is always ./myTeam.html
-    const html = `<!DOCTYPE html>\n<html lang="en">\n<head>\n\t<meta charset="UTF-8">\n\t
-                  <title>Employee Data</title>\n</head>\n
-                  <body>\n <h1>My Team</h1>\n
-                  ${pText}</body>\n</html>\n`;
-    fs.writeFile("./dist/myTeam.html", html, callbackWriteFile);
-}
-
-// Write Callback Function
-function callbackWriteFile(err) {
-    err ? console.log(err) : console.log('success');
-}
-
-function callbackEmployeeArray(item, index, array) {
-
-    console.log("item.name: " + item.name);
-    console.log("item.email: " + item.email);
-    console.log("item.githubaccount: " + item.githubaccount);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// console.log(JSON.stringify(optionMenu));
+// // {"option":"add an engineer"}
