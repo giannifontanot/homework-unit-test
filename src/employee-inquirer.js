@@ -1,12 +1,13 @@
 const inquirer = require('inquirer');
+const chalk = require("chalk");
 
 module.exports = {
-    fillData: () => {
+    fillData: (employee) => {
         const questions = [
             {
                 name: 'name',
                 type: 'input',
-                message: 'Enter the name:',
+                message: 'Enter the name of the '+chalk.red(employee)+':',
                 validate: function( value ) {
                     if (value.length) {
                         return true;
