@@ -11,46 +11,71 @@ const option_inquirer = require('./src/option_inquirer');
 const intern_inquirer = require('./src/intern-inquirer');
 const engineer_inquirer = require('./src/engineer-inquirer');
 
-const run = async () => {
+// Classes
+const Employee = require('./lib/Employee');
+const Intern = require('./lib/Intern');
+const Manager = require('./lib/Manager');
+const Engineer = require('./lib/Engineer');
+
+// Containers
+const gTeam = [];
+
+// RUN FORREST, RUN!!
+run = async () => {
 
     fClearPage();
 
     // Enter manager's information
-    let employeeData = await employee_inquirer.fillData();
-    let managerData = await manager_inquirer.fillData();
+    let {name, id, email} = await employee_inquirer.fillData();
+    let {officeNumber} = await manager_inquirer.fillData();
 
+    // Create a new object using the class Manager
+    let manager = new Manager(name, id, email, officeNumber);
+
+    // We add the manager to the team
+    gTeam.push(manager);
+
+    // Ask about the other members of the team
     let bContinue = true;
     while (bContinue) {
-
-        let employeeData = "";
-        let engineerData = "";
-        let internData = "";
-
+        let name = "";
+        let id = "";
+        let email = "";
+        let github = "";
         // What else do you want to do?
         fClearPage();
         const {option} = await option_inquirer.getOption();
+
         switch (option) {
-            case "add an engineer":
+            case "add an engineer": {
                 fClearPage();
-                employeeData = await employee_inquirer.fillData();
-                engineerData = await engineer_inquirer.fillData();
+
+                let {name, id, email} = await employee_inquirer.fillData();
+                let {github} = await engineer_inquirer.fillData();
+                const engineer = new Engineer(name, id, email, github);
+                gTeam.push(engineer);
                 break;
-            case "add an intern":
+            }
+            case "add an intern": {
                 fClearPage();
-                employeeData = await employee_inquirer.fillData();
-                internData = await intern_inquirer.fillData();
+                let {name, id, email} = await employee_inquirer.fillData();
+                let {school} = await intern_inquirer.fillData();
+                const intern = new Intern(name, id, email, school);
+                gTeam.push(intern);
                 break;
-            case "finish building my team":
+            }
+            case "finish building my team": {
                 fClearPage();
                 bContinue = false;
                 break;
+            }
         }
     }
 
 }
 
 run().then(r => {
-
+console.log(JSON.stringify(gTeam));
 
 });
 
