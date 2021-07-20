@@ -6,12 +6,12 @@ module.exports = {
             {
                 name: 'github',
                 type: 'input',
-                message: 'Enter the GitHub username',
+                message: 'Enter the GitHub username:',
                 validate: function (value) {
                     if (value.length) {
                         return true;
                     } else {
-                        return 'Please enter the GitHub username';
+                        return 'Please enter the GitHub username.';
                     }
                 }
             },

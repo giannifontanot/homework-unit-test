@@ -6,12 +6,12 @@ module.exports = {
             {
                 name: 'school',
                 type: 'input',
-                message: 'Enter the school name',
+                message: 'Enter the school name:',
                 validate: function (value) {
                     if (value.length) {
                         return true;
                     } else {
-                        return 'Please enter the school name';
+                        return 'Please enter the school name.';
                     }
                 }
             },
