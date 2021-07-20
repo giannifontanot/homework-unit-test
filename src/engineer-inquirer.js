@@ -4,7 +4,7 @@ module.exports = {
     fillData: () => {
         const questions = [
             {
-                name: 'githubusername',
+                name: 'github',
                 type: 'input',
                 message: 'Enter the GitHub username',
                 validate: function (value) {
