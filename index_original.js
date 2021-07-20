@@ -60,15 +60,7 @@ inquirer.prompt([{
 
 });
 
-// We write the results
-function writeHTMLFile(pText) {
-    // Name of the file is always ./myTeam.html
-    const html = `<!DOCTYPE html>\n<html lang="en">\n<head>\n\t<meta charset="UTF-8">\n\t
-                  <title>Employee Data</title>\n</head>\n
-                  <body>\n <h1>My Team</h1>\n
-                  ${pText}</body>\n</html>\n`;
-    fs.writeFile("./dist/myTeam.html", html, callbackWriteFile);
-}
+
 
 // Write Callback Function
 function callbackWriteFile(err) {
@@ -77,9 +69,6 @@ function callbackWriteFile(err) {
 
 function callbackEmployeeArray(item, index, array) {
 
-    console.log("item.name: " + item.name);
-    console.log("item.email: " + item.email);
-    console.log("item.githubaccount: " + item.githubaccount);
 }
 
 

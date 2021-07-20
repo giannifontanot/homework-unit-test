@@ -1,10 +1,6 @@
-// Required libraries: INQUIRER and FILE SYSTEM
-const chalk = require('chalk');
-const clear = require('clear');
-const figlet = require('figlet');
+const tools = require('./lib/tools');
 
 // Inquirer questions
-const fs = require('fs');
 const employee_inquirer = require('./src/employee-inquirer');
 const manager_inquirer = require('./src/manager-inquirer');
 const option_inquirer = require('./src/option_inquirer');
@@ -43,56 +39,38 @@ run = async () => {
         let email = "";
         let github = "";
         // What else do you want to do?
-        fClearPage();
+        tools.clearPage();
         const {option} = await option_inquirer.getOption();
 
         switch (option) {
             case "add an engineer": {
-                fClearPage();
-
-                let {name, id, email} = await employee_inquirer.fillData();
+                tools.clearPage();
+                let {name, id, email} = await employee_inquirer.fillData('engineer');
                 let {github} = await engineer_inquirer.fillData();
-                const engineer = new Engineer(name, id, email, github);
+                let engineer = new Engineer(name, id, email, 'Engineer', github);
                 gTeam.push(engineer);
                 break;
             }
             case "add an intern": {
-                fClearPage();
-                let {name, id, email} = await employee_inquirer.fillData();
+                tools.clearPage();
+                let {name, id, email} = await employee_inquirer.fillData('intern');
                 let {school} = await intern_inquirer.fillData();
-                const intern = new Intern(name, id, email, school);
+                let intern = new Intern(name, id, email, 'Intern', school);
                 gTeam.push(intern);
                 break;
             }
             case "finish building my team": {
-                fClearPage();
+                tools.clearPage();
                 bContinue = false;
                 break;
             }
         }
     }
-
 }
 
+// RUN FORREST, RUN!!
 run().then(r => {
-console.log(JSON.stringify(gTeam));
-
+// Read gTeam and generate html
+    tools.buildHTML(gTeam);
 });
 
-// console.log(JSON.stringify(optionMenu));
-// // {"option":"add an engineer"}
-
-
-function fClearPage() {
-
-    clear();
-
-    console.log(
-        chalk.yellow(
-            figlet.textSync('My Team', {
-                horizontalLayout: 'full'
-            })
-        )
-    );
-
-}
