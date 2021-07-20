@@ -2,8 +2,8 @@
 const chalk = require('chalk');
 const clear = require('clear');
 const figlet = require('figlet');
-const inquirer = require('inquirer');
-const inquirer_recursive = require('inquirer-recursive');
+
+// Inquirer questions
 const fs = require('fs');
 const employee_inquirer = require('./src/employee-inquirer');
 const manager_inquirer = require('./src/manager-inquirer');
