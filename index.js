@@ -23,16 +23,16 @@ const gTeam = [];
 // RUN FORREST, RUN!!
 run = async () => {
 
-    fClearPage();
+    tools.clearPage();
 
     // Enter manager's information
-    let {name, id, email} = await employee_inquirer.fillData();
+    let {name, id, email} = await employee_inquirer.fillData('manager');
     let {officeNumber} = await manager_inquirer.fillData();
 
     // Create a new object using the class Manager
-    let manager = new Manager(name, id, email, officeNumber);
+    let manager = new Manager(name, id, email, 'Manager', officeNumber);
 
-    // We add the manager to the team
+    // We add a manager to the team
     gTeam.push(manager);
 
     // Ask about the other members of the team
