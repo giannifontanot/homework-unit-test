@@ -34,10 +34,7 @@ run = async () => {
     // Ask about the other members of the team
     let bContinue = true;
     while (bContinue) {
-        let name = "";
-        let id = "";
-        let email = "";
-        let github = "";
+
         // What else do you want to do?
         tools.clearPage();
         const {option} = await option_inquirer.getOption();
