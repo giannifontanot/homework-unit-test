@@ -24,11 +24,24 @@ module.exports = {
         ];
         return inquirer.prompt(questions);
     },
+    checkValidateNameResponse: (name) => {
+        console.log("name: >" + name+"<");
+        return validateNameResponse(name);
+    },
+    checkValidateIdResponse: (Id) => {
+        console.log("ID: >" + Id+"<");
+        return validateIdResponse(Id);
+    },
+    checkValidateEmailResponse: (email) => {
+        console.log("email: >" + email+"<");
+        return validateIdResponse(email);
+    },
+
 };
 
 const validateNameResponse = name => {
     //validate null or undefined
-    const message = "Please enter a valid name."
+    const message = "Please enter a valid name. "
     if (name == null) {
         return message + "Cannot be null.";
     }
@@ -36,10 +49,10 @@ const validateNameResponse = name => {
     if (!name.length) {
         return message + "Cannot be empty.";
     }
-    //validate not numbers, special characters or uppercase
-    let pattern = new RegExp(/^[a-z]+$/g);
+    //validate not numbers, special characters
+    let pattern = new RegExp(/^[a-zA-Z]+$/g);
     if (!pattern.test(name)) {
-        return message + "No numbers, special characters or uppercase accepted.";
+        return message + "No numbers or special characters accepted.";
     }
     //valid name
     return true;
@@ -47,7 +60,7 @@ const validateNameResponse = name => {
 
 const validateIdResponse = id => {
     //validate null or undefined
-    const message = "Please enter a valid ID."
+    const message = "Please enter a valid ID. "
     if (id == null) {
         return message + " Cannot be null.";
     }
@@ -65,7 +78,7 @@ const validateIdResponse = id => {
 
 const validateEmailResponse = email => {
     //validate null or undefined
-    const message = "Please enter a valid email."
+    const message = "Please enter a valid email. "
     if (email == null) {
         return message + "Cannot be null.";
     }

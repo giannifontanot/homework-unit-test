@@ -13,11 +13,15 @@ module.exports = {
         ];
         return inquirer.prompt(questions);
     },
+    checkValidateSchoolResponse: (school) => {
+        console.log("school: >" + school + "<");
+        return validateSchoolResponse(school);
+    },
 };
 
 const validateSchoolResponse = school => {
     //validate null or undefined
-    const message = "Please enter a valid school."
+    const message = "Please enter a valid school. "
     if (school == null) {
         return message + "Cannot be null.";
     }
@@ -29,6 +33,11 @@ const validateSchoolResponse = school => {
     let pattern = new RegExp(/[^0-9]/g);
     if (!pattern.test(school)) {
         return message + "No numbers in school accepted.";
+    }
+    //validate not blank space
+    pattern = new RegExp(/^[^\s]+(\s+[^\s]+)*$/g);
+    if (!pattern.test(school)) {
+        return message + "No blank spaces at the beginning or end.";
     }
     //valid name
     return true;

@@ -1,4 +1,5 @@
 const inquirer = require('inquirer');
+const githubUsernameRegex = require('github-username-regex');
 
 module.exports = {
     fillData: () => {
@@ -13,21 +14,25 @@ module.exports = {
         ];
         return inquirer.prompt(questions);
     },
+    checkValidateGitHubResponse: (github) => {
+        console.log("github: >" + github+"<");
+        return validateGitHubResponse(github);
+    },
 };
+
 const validateGitHubResponse = name => {
     //validate null or undefined
-    const message = "Please enter a valid GitHub."
+    const message = "Please enter a valid GitHub. "
     if (name == null) {
-        return message + "Cannot be null.";
+        return message + "Your input cannot be null.";
     }
     //validate blank string
     if (!name.length) {
-        return message + "Cannot be empty.";
+        return message + "Your input cannot be empty.";
     }
-    //validate only lowercase and numbers
-    let pattern = new RegExp(/^[a-z0-9]+$/g);
-    if (!pattern.test(name)) {
-        return message + " Only numbers and lowercase letters.";
+    //validate github username policy
+    if (!githubUsernameRegex.test(name)) {
+        return message + "Your input must be a valid GitHub username.";
     }
     //valid name
     return true;

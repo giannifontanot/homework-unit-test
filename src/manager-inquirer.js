@@ -19,11 +19,15 @@ module.exports = {
         ];
         return inquirer.prompt(questions);
     },
+    checkValidateManagerResponse: (officeNumber) => {
+	        console.log("officeNumber: >" + officeNumber + "<");
+        return validateManagerResponse(officeNumber);
+    },
 };
 
-let validateSchoolResponse = officeNumber => {
+let validateManagerResponse = officeNumber => {
     //validate null or undefined
-    const message = "Please enter a valid school."
+    const message = "Please enter a valid office number. "
     if (officeNumber == null) {
         return message + "Cannot be null.";
     }
