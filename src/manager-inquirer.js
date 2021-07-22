@@ -20,3 +20,22 @@ module.exports = {
         return inquirer.prompt(questions);
     },
 };
+
+let validateSchoolResponse = officeNumber => {
+    //validate null or undefined
+    const message = "Please enter a valid school."
+    if (officeNumber == null) {
+        return message + "Cannot be null.";
+    }
+    //validate blank string
+    if (!officeNumber.length) {
+        return message + "Cannot be empty.";
+    }
+    //validate not numbers
+    let pattern = new RegExp(/^[0-9]+$/g);
+    if (!pattern.test(officeNumber)) {
+        return message + "Only numbers accepted.";
+    }
+    //valid name
+    return true;
+};
