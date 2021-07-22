@@ -15,7 +15,9 @@
 
 # The project
 
-The aim of this project is to provide the opportunity to capture the information of the a team and save it for later use. The team is composed by a manager, the engineers, and interns. The information is captured on a CLI (command line interface) in a very clean and efficient way. After all the data is captured, the system creates a HTML page ans shows this information on a browser. 
+The aim of this project is to provide the opportunity to capture the information of the team and save it for later 
+use. The team is composed by a manager, the engineers, and interns. The information is captured on a CLI (command 
+line interface) in a very clean and efficient way. After all the data is captured, the system creates a HTML page and shows this information on a browser. 
 
 
 ## Demo & Video
