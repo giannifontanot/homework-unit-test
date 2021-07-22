@@ -28,7 +28,7 @@ you can watch a video [here](https://drive.google.com/file/d/1qdDQoqwCLE1-o6axub
 The tests were prepared using Jest in NodeJS.
 
 ![All-tests-passed.png](All-tests-passed.png)
-## Features<hr>
+## Features
 ````````````
 - The CLI is very easy to use
 - You can input one manager's info, but many engineers and interns.
