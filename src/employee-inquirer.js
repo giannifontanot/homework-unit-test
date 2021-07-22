@@ -40,7 +40,7 @@ module.exports = {
      * @returns {string|boolean}
      */
     checkValidateNameResponse: (name) => {
-        console.log("name: >" + name+"<");
+        //console.log("name: >" + name+"<");
         return validateNameResponse(name);
     },
     /**
@@ -49,7 +49,7 @@ module.exports = {
      * @returns {string|boolean}
      */
     checkValidateIdResponse: (Id) => {
-        console.log("ID: >" + Id+"<");
+        //console.log("ID: >" + Id+"<");
         return validateIdResponse(Id);
     },
     /**
@@ -58,7 +58,7 @@ module.exports = {
      * @returns {string|boolean}
      */
     checkValidateEmailResponse: (email) => {
-        console.log("email: >" + email+"<");
+        //console.log("email: >" + email+"<");
         return validateIdResponse(email);
     },
 
@@ -80,7 +80,7 @@ const validateNameResponse = name => {
         return message + "Cannot be empty.";
     }
     //validate not numbers, special characters
-    let pattern = new RegExp(/^[a-zA-Z]+$/g);
+    let pattern = new RegExp(/^[a-zA-Z\s]*$/g);
     if (!pattern.test(name)) {
         return message + "No numbers or special characters accepted.";
     }

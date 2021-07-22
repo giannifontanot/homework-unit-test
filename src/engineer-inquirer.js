@@ -29,7 +29,7 @@ module.exports = {
      * @returns {string|boolean}
      */
     checkValidateGitHubResponse: (github) => {
-        console.log("github: >" + github+"<");
+        //console.log("github: >" + github+"<");
         return validateGitHubResponse(github);
     },
 };

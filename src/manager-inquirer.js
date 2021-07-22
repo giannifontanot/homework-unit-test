@@ -17,13 +17,7 @@ module.exports = {
                 name: 'officeNumber',
                 type: 'input',
                 message: 'Enter the office number:',
-                validate: function (value) {
-                    if (value.length) {
-                        return true;
-                    } else {
-                        return 'Please enter the office number.';
-                    }
-                }
+                validate: validateManagerResponse,
             },
 
         ];
@@ -35,7 +29,7 @@ module.exports = {
      * @returns {string|boolean}
      */
     checkValidateManagerResponse: (officeNumber) => {
-	        console.log("officeNumber: >" + officeNumber + "<");
+	        //console.log("officeNumber: >" + officeNumber + "<");
         return validateManagerResponse(officeNumber);
     },
 };

@@ -28,7 +28,7 @@ module.exports = {
      * @returns {string|boolean}
      */
     checkValidateSchoolResponse: (school) => {
-        console.log("school: >" + school + "<");
+        //console.log("school: >" + school + "<");
         return validateSchoolResponse(school);
     },
 };

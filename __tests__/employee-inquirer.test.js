@@ -8,32 +8,32 @@ describe("The user's input for Employee", () => {
     it("should not accept an empty string", () => {
         const response = employee_inquirer.checkValidateNameResponse("");
         expect(response).toString();
-        console.log(response);
+        //console.log(response);
     });
     it("should not accept null", () => {
         const response = employee_inquirer.checkValidateNameResponse();
         expect(response).toString();
-        console.log(response);
+        //console.log(response);
     });
     it("should not accept spaces", () => {
         const response = employee_inquirer.checkValidateNameResponse(" ");
         expect(response).toString();
-        console.log(response);
+        //console.log(response);
     });
     it("should not accept numbers", () => {
         const response = employee_inquirer.checkValidateNameResponse(123);
         expect(response).toString();
-        console.log(response);
+        //console.log(response);
     });
     it("should not accept numbers", () => {
         const response = employee_inquirer.checkValidateNameResponse("123");
         expect(response).toString();
-        console.log(response);
+        //console.log(response);
     });
     it("should not accept special characters", () => {
         const response = employee_inquirer.checkValidateNameResponse("#");
         expect(response).toString();
-        console.log(response);
+        //console.log(response);
     });
 
 });
@@ -45,27 +45,27 @@ describe("The user's input for ID", () => {
     it("should not accept an empty number", () => {
         const response = employee_inquirer.checkValidateIdResponse("");
         expect(response).toString();
-        console.log(response);
+        //console.log(response);
     });
     it("should not accept null", () => {
         const response = employee_inquirer.checkValidateIdResponse();
         expect(response).toString();
-        console.log(response);
+        //console.log(response);
     });
     it("should not accept letters", () => {
         const response = employee_inquirer.checkValidateIdResponse("hello");
         expect(response).toString();
-        console.log(response);
+        //console.log(response);
     });
     it("should not accept special characters", () => {
         const response = employee_inquirer.checkValidateIdResponse("#");
         expect(response).toString();
-        console.log(response);
+        //console.log(response);
     });
     it("should not accept spaces", () => {
         const response = employee_inquirer.checkValidateIdResponse(" ");
         expect(response).toString();
-        console.log(response);
+        //console.log(response);
     });
 });
     describe("The user's input for email", () => {
@@ -76,22 +76,22 @@ describe("The user's input for ID", () => {
         it("should not accept an empty email address", () => {
             const response = employee_inquirer.checkValidateEmailResponse("");
             expect(response).toString();
-            console.log(response);
+            //console.log(response);
         });
         it("should not accept null", () => {
             const response = employee_inquirer.checkValidateEmailResponse();
             expect(response).toString();
-            console.log(response);
+            //console.log(response);
         });
         it("should not accept special characters", () => {
             const response = employee_inquirer.checkValidateEmailResponse("#");
             expect(response).toString();
-            console.log(response);
+            //console.log(response);
         });
         it("should not accept spaces", () => {
             const response = employee_inquirer.checkValidateEmailResponse(" ");
             expect(response).toString();
-            console.log(response);
+            //console.log(response);
         });
 });
 
