@@ -1,4 +1,8 @@
-//  Options for the user.
+
+/**
+ * Options for the user after entering Manager data
+ * @type {{prompts?: {}, Separator?: Separator|{}, ui?: {BottomBar: BottomBar, Prompt: PromptUI}, createPromptModule?: function(*=): *, prompt?: *, registerPrompt?: function(*=, *=): void, restoreDefaultPrompts?: function(): void}}
+ */
 const inquirer = require('inquirer');
 
 module.exports = {

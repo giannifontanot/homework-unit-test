@@ -1,7 +1,17 @@
+/**
+ * Inquirer questions and
+ * validations for the
+ * class EMPLOYEE
+ */
 const inquirer = require('inquirer');
 const chalk = require("chalk");
 
 module.exports = {
+    /**
+     * Inquirer questions
+     * @param employee
+     * @returns {*}
+     */
     fillData: (employee) => {
         const questions = [
             {
@@ -24,21 +34,41 @@ module.exports = {
         ];
         return inquirer.prompt(questions);
     },
+    /**
+     * Method used in Jest
+     * @param name
+     * @returns {string|boolean}
+     */
     checkValidateNameResponse: (name) => {
         console.log("name: >" + name+"<");
         return validateNameResponse(name);
     },
+    /**
+     * Method used un Jest
+     * @param name
+     * @returns {string|boolean}
+     */
     checkValidateIdResponse: (Id) => {
         console.log("ID: >" + Id+"<");
         return validateIdResponse(Id);
     },
+    /**
+     * Method used un Jest
+     * @param name
+     * @returns {string|boolean}
+     */
     checkValidateEmailResponse: (email) => {
         console.log("email: >" + email+"<");
         return validateIdResponse(email);
     },
 
 };
-
+/**
+ * Validates the input for the name
+ * of the employee.
+ * @param name
+ * @returns {string|boolean}
+ */
 const validateNameResponse = name => {
     //validate null or undefined
     const message = "Please enter a valid name. "
@@ -58,6 +88,12 @@ const validateNameResponse = name => {
     return true;
 };
 
+/**
+ * Validates the input for the ID
+ * of the employee
+ * @param id
+ * @returns {string|boolean}
+ */
 const validateIdResponse = id => {
     //validate null or undefined
     const message = "Please enter a valid ID. "
@@ -75,7 +111,12 @@ const validateIdResponse = id => {
     //valid ID
     return true;
 };
-
+/**
+ * Validates the input for the email
+ * of the employee
+ * @param email
+ * @returns {string|boolean}
+ */
 const validateEmailResponse = email => {
     //validate null or undefined
     const message = "Please enter a valid email. "

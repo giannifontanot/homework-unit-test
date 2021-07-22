@@ -1,7 +1,16 @@
+/**
+ * Inquirer questions and
+ * validations for the
+ * class ENGINEER
+ */
 const inquirer = require('inquirer');
 const githubUsernameRegex = require('github-username-regex');
 
 module.exports = {
+    /**
+     * Inquirer questions
+     * @returns {*}
+     */
     fillData: () => {
         const questions = [
             {
@@ -14,12 +23,22 @@ module.exports = {
         ];
         return inquirer.prompt(questions);
     },
+    /**
+     * Method used in Jest
+     * @param github
+     * @returns {string|boolean}
+     */
     checkValidateGitHubResponse: (github) => {
         console.log("github: >" + github+"<");
         return validateGitHubResponse(github);
     },
 };
-
+/**
+ * Validates the input for the
+ * GitHub username of the ENGINEER
+ * @param id
+ * @returns {string|boolean}
+ */
 const validateGitHubResponse = name => {
     //validate null or undefined
     const message = "Please enter a valid GitHub. "

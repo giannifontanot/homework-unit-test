@@ -1,6 +1,15 @@
+/**
+ * Inquirer questions and
+ * validations for the
+ * class INTERN
+ */
 const inquirer = require('inquirer');
 
 module.exports = {
+    /**
+     * Inquirer questions
+     * @returns {*}
+     */
     fillData: () => {
         const questions = [
             {
@@ -13,6 +22,11 @@ module.exports = {
         ];
         return inquirer.prompt(questions);
     },
+    /**
+     * Method used in Jest
+     * @param school
+     * @returns {string|boolean}
+     */
     checkValidateSchoolResponse: (school) => {
         console.log("school: >" + school + "<");
         return validateSchoolResponse(school);

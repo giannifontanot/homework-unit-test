@@ -1,6 +1,16 @@
+/**
+ * Inquirer questions and
+ * validations for the
+ * class MANAGER
+ */
 const inquirer = require('inquirer');
 
 module.exports = {
+
+    /**
+     * Inquirer questions
+     * @returns {*}
+     */
     fillData: () => {
         const questions = [
             {
@@ -19,12 +29,22 @@ module.exports = {
         ];
         return inquirer.prompt(questions);
     },
+    /**
+     * Method used in Jest
+     * @param officeNumber
+     * @returns {string|boolean}
+     */
     checkValidateManagerResponse: (officeNumber) => {
 	        console.log("officeNumber: >" + officeNumber + "<");
         return validateManagerResponse(officeNumber);
     },
 };
 
+/**
+ * Validate Office Number
+ * @param officeNumber
+ * @returns {string|boolean}
+ */
 let validateManagerResponse = officeNumber => {
     //validate null or undefined
     const message = "Please enter a valid office number. "
