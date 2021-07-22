@@ -5,6 +5,8 @@
 The aim of this project is to provide the opportunity to capture the information of the a team and save it for later use. The team is composed by a manager, the engineers, and interns. The information is captured on a CLI (command line interface) in a very clean and efficient way. After all the data is captured, the system creates a HTML page ans shows this information on a browser. 
 ## Demo
 ![my-team.gif](my-team.gif)
+## Test Passed
+![All-tests-passed.png](All-tests-passed.png)
 ## Features
 - The CLI is very easy to use
 - You can input one manager's info, but many engineers and interns.
