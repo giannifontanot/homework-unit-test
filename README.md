@@ -22,7 +22,7 @@ line interface) in a very clean and efficient way. After all the data is capture
 
 
 ## Demo & Video
-You can see the image below showing a brief explanation of how to yse the system. If you prefer, 
+You can see the image below showing a brief explanation of how to use the system. If you prefer, 
 you can watch a video [here](https://drive.google.com/file/d/1qdDQoqwCLE1-o6axubAlCWcQyEY2LNc7/view).
  
  ![my-team.gif](my-team.gif)
